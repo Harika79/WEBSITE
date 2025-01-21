@@ -1,0 +1,36 @@
+
+{% extends 'authenticate/base.html' %}
+
+{% block content %}
+<style>
+    /* Add background image to the body */
+    body {
+        background-image: url('/static/images/img11.jpeg'); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh; /* Adjust height as needed */
+    }
+</style>
+
+<h2 class="text-center">Login</h2>
+
+<div class="col-md-6 offset-md-3"> 
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter Username" name="username">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Enter Password" name="password"> 
+        </div>
+        <button type="submit" class="btn btn-secondary">Login</button>
+    </form>
+	<div class="d-flex justify-content-center links">
+		<button class="btn btn-outline-light ml-2" style="text-shadow: 0 0 4px rgb(206, 201, 225); background-color: #080202;" onclick="window.location.href='http://127.0.0.1:8000/reset_password/'">Forgot Password?</button>
+	</div>
+	
+	
+</div>
+
+{% endblock %}

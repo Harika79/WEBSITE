@@ -1,0 +1,117 @@
+
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 36px;
+            color: #131415;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        li {
+            width: 30%;
+            margin-bottom: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 2px solid #08090a; /* Added border style */
+            padding: 10px; /* Added padding */
+        }
+
+        li:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 100%;
+            height: 200px; /* Set a fixed height for all images */
+            object-fit: cover; /* Ensure the image covers the entire space */
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="button-container" style="position: fixed; top: 10px; right: 10px;">
+        <a href='http://127.0.0.1:8000/books/' style="text-decoration: none; filter: brightness(800%);color: rgb(3, 1, 1); font-weight: bold;" class="button"><u>leave</u></a>
+    </div>
+   <u><h1>Purchase e-books here</h1></u>
+
+    <ul>
+        {% for book in books %}
+        <li>
+            <img src="{% if book.image %}{{ book.image.url }}{% else %}{% static 'placeholder.png' %}{% endif %}" alt="{{ book.title }}">
+            <p>Title: {{ book.title }}</p>
+            <p>Author: {{ book.author }}</p>
+            <p>Price: {{ book.price }}</p>
+            {% if book.id in purchased_books %}
+            <p>You have already purchased this book</p>
+            {% else %}
+            <form action="{% url 'purchase_book' book.id %}" method="GET">
+                <pre>                        <button type="submit">Purchase</button></pre>
+            </form>
+            {% endif %}
+            {% if user.is_staff %}
+            <form method="post" action="{% url 'delete_book' book.id %}">
+                {% csrf_token %}
+                <button type="submit" class="delete-button">Delete</button>
+            </form>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!-- <form method="POST"enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="author" placeholder="Author">
+    <input type="number" name="price" placeholder="Price">
+    <input type="file" name="image" accept="image/*" placeholder="Upload Image">
+    <input type="url" name="url" placeholder="Enter URL">
+    <button type="submit">Add Book</button>
+</form> -->
+<!-- add_book.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Navbar</title>
+    <style>
+        /* CSS for the vertical navbar */
+        body {
+            background-image: url('/static/images/img11.jpeg'); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Adjust height as needed */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px; /* Adjust width as needed */
+            background-color: #603b23;
+            height: 100vh; /* Full height of viewport */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-top: 60px; /* Adjust padding for space above navbar items */
+        }
+
+        .navbar img {
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+            margin-bottom: 50px; /* Add margin below the image */
+            width: 350px; /* Specify width for the image */
+            height: 200px; /* Specify height for the image */
+            margin-left: -75px; /* Move image to the left */
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li a {
+            display: block;
+            color: rgb(231, 223, 223);
+            padding: 30px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #555;
+        }
+
+        .content {
+            margin-left: 200px; /* Adjust margin to match navbar width */
+            padding: 20px; /* Add padding to content */
+        }
+        .text-overlay  {
+            text-align: right;
+            margin-right: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="/static/images/img82.png" alt="Logo" width="150">
+        <ul>
+            
+            <!-- {% if user.is_staff %}
+    <li><a href="purchase/details/all">Purchased books information</a></li>
+{% endif %} -->
+            <!-- <li><a href="purchase/details/all">Purchased books information</a></li> -->
+
+            <!-- return redirect('show_all_purchase_details') -->
+            <!-- <li><a href="free_books/">publish free books</a></li>
+            <li><a href="books/show/">Read books</a></li> -->
+            <!-- <li><a href="">Contact</a></li> -->
+        </ul>
+    </div>
+
+    
+    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="url"],
+        input[type="file"],
+        button {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <div class="button-container" style="position: fixed; top: 10px; right: 10px;">
+          <a href='http://127.0.0.1:8000/books/' style="text-decoration: none; filter: brightness(800%);color: rgb(226, 219, 219); font-weight: bold;" class="button"><u>go back</u></a>
+      </div>
+    <div class="container">
+        <h2>Add Book</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="author" placeholder="Author">
+            <input type="number" name="price" placeholder="Price">
+            <input type="file" name="image" accept="image/*" placeholder="Upload Image">
+            <input type="file" name="pdf_file" accept="application/pdf" placeholder="Upload PDF">
+            <input type="email" name="email" placeholder="Email"><br> <!-- Added email field -->
+            <button type="submit">Add Book</button>
+        </form>
+    </div>
+</body>
+</html>

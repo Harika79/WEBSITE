@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            width: 100%;
+            background-color: #0c0b0b; /* Optional background color for the header */
+            color: white; /* Optional text color for the header */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container" style="position: fixed; top: 5px; right: 10px;">
+        <a href='http://127.0.0.1:8000/explore/' style="text-decoration: none; filter: brightness(1000%);color: rgb(8, 6, 6); font-weight: bold;" class="button"><u>go back</u></a>
+    </div>
+    <!-- <h2>Space Technology news</h2> -->
+    <header>
+        <h1> Space Technology News</h1>
+     </header>
+    <table>
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>author</th>
+                <th>date</th>
+                <th>content</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in data %}
+                <tr>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.author }}</td>
+                    <td>{{ post.date }}</td>
+                    <td>{{ post.content }}</td>
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

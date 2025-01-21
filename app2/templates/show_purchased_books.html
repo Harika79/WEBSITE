@@ -1,0 +1,99 @@
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Purchased Books</title>
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             margin: 0;
+             padding: 20px;
+             background: url('/static/images/img11.jpeg') no-repeat center center fixed;
+             background-size: cover;
+         }
+ 
+         .container {
+             max-width: 1000px; /* Increased max-width */
+             margin: 0 auto;
+             padding: 20px;
+             background-color: rgba(255, 255, 255, 0.9);
+             border-radius: 5px;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+         }
+ 
+         .purchased-books-container {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-between;
+             margin-top: 20px;
+         }
+ 
+         .purchased-book-card {
+             width: calc(30% - 20px); /* Adjust width here */
+             margin-bottom: 20px;
+             border: 1px solid #1f1313;
+             border-radius: 5px;
+             padding: 15px;
+             box-sizing: border-box;
+             text-align: center;
+             background-color: #cbd5d5;
+         }
+ 
+         .purchased-book-card img {
+             width: 200px; /* Adjust image size here */
+             height: 200px;
+             border-radius: 5px;
+             margin-bottom: 10px;
+         }
+ 
+         .purchased-book-card p {
+             margin: 5px 0;
+         }
+ 
+         .purchased-book-card a {
+             color: #007bff;
+             text-decoration: none;
+         }
+ 
+         .purchased-book-card a:hover {
+             text-decoration: underline;
+         }
+     </style>
+ </head>
+ <body>
+    <body>
+        <div class="button-container" style="position: fixed; top: 10px; right: 10px;">
+          <a href='http://127.0.0.1:8000/books/' style="text-decoration: none; filter: brightness(800%);color: rgb(226, 219, 219); font-weight: bold;" class="button"><u>Leave</u></a>
+      </div>
+     <div class="container">
+         <u><h2 class="purchased-books-title" style="margin-left: 360px;">Purchased Books</h2></u>
+         <div class="purchased-books-container">
+             {% for purchased_book in purchased_books %}
+                 <div class="purchased-book-card">
+                     {% if purchased_book.book.image %}
+                         <img src="{{ purchased_book.book.image.url }}" alt="Book Image">
+                     {% else %}
+                         <p>No image available</p>
+                     {% endif %}
+                     <p><strong>Title:</strong> {{ purchased_book.book.title }}</p>
+                    
+                     {% if purchased_book.book.pdf_file %}
+    <p><a href="{{ purchased_book.book.pdf_file.url }}" target="_blank">Read</a></p>
+{% else %}
+    <p>No PDF file available</p>
+{% endif %}
+                 </div>
+                 {% if forloop.counter|divisibleby:3 %}
+                     <div style="width: 100%; clear: both;"></div>
+                 {% endif %}
+             {% endfor %}
+         </div>
+     </div>
+ </body>
+ </html>
+ 
+
+
+

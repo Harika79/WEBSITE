@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>news page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('/static/images/img11.jpeg');
+      background-size: cover;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white; /* Adjust text color based on your background */
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .login-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 60px;
+      border-radius: 60px;
+      text-align: center;
+    }
+
+    .login-form input,
+    .login-form button {
+      display: block;
+      width: 100%;
+      padding: 20px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .login-form button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+
+    .login-form button:hover {
+      background-color: #45a049;
+    }
+    .container {
+      position: relative;
+  }
+  
+  .border-image {
+      position: absolute;
+      width: 50px; /* Adjust size as needed */
+      height: 50px; /* Adjust size as needed */
+  }
+  
+  .top-left {
+      top: 0;
+      left: 0;
+  }
+  
+  .top-right {
+      top: 0;
+      right: 0;
+      transform: scaleX(-1);
+  }
+  
+  .bottom-left {
+      bottom: 0;
+      left: 0;
+      transform: scaleY(-1);
+  }
+  
+  .bottom-right {
+      bottom: 0;
+      right: 0;
+      transform: rotate(180deg);
+  }
+  
+  </style>
+</head>
+<body>
+  <div class="button-container" style="position: fixed; top: 10px; right: 10px;">
+    <a href='http://127.0.0.1:8000/explore/' style="text-decoration: none; filter: brightness(800%);color: rgb(226, 219, 219); font-weight: bold;" class="button"><u>go back</u></a>
+</div>
+
+  
+  <div><h1 style="color:white">CONTRIBUTE CONTENT</h1>
+    <div ><h1 style="color:white">TO THIS PAGE</h1>
+  <p> <h3 style="color:white"> You can submit related content</h3></p>
+
+
+  </div>
+
+  <div class="login-container">
+    <form class="login-form" method="POST">
+      {% csrf_token %}
+
+  
+      <input type="text" name="title" placeholder="Title" required>
+      <input type="text" name="author" placeholder="Author" required>
+      <input type="date" name="date" placeholder="Date" required>
+      <textarea id="content" name="content" rows="9" cols="60" required></textarea>
+
+      <button type="submit" class="btn btn-primary">Submit </button>
+      <div>
+        <h2>You can check content</h2>
+        <button type="submit"><a href="http://127.0.0.1:8000/show_content/">Click</a></button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

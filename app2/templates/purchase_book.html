@@ -1,0 +1,82 @@
+<!-- <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name">
+    <input type="email" name="email" placeholder="Email">
+    <input type="text" name="address" placeholder="Address">
+    <label for="timestamp">Date and Time:</label>
+    <input type="datetime-local" id="timestamp" name="timestamp" required>
+
+    <button type="submit">Submit Details</bu
+        tton>
+</form> 
+ -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f8; /* Set a background color */
+            background-image: url('/static/images/img11.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: rgba(231, 214, 214, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="datetime-local"],
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="address" placeholder="Address">
+        <input type="text" name="credit_card" placeholder="Credit Card Number">
+        <label for="timestamp">Date and Time:</label>
+        <input type="datetime-local" id="timestamp" name="timestamp" required>
+        <button type="submit">Submit Details</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Purchased Books</title>
+     <style>
+         body {
+             font-family: Arial, sans-serif;
+             margin: 0;
+             padding: 20px;
+             background: url('/static/images/img11.jpeg') no-repeat center center fixed;
+             background-size: cover;
+         }
+ 
+         .container {
+             max-width: 1000px; /* Increased max-width */
+             margin: 0 auto;
+             padding: 20px;
+             background-color: rgba(255, 255, 255, 0.9);
+             border-radius: 5px;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+         }
+ 
+         .purchased-books-container {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: space-between;
+             margin-top: 20px;
+         }
+ 
+         .purchased-book-card {
+             width: calc(30% - 20px); /* Adjust width here */
+             margin-bottom: 20px;
+             border: 1px solid #dacdcd;
+             border-radius: 5px;
+             padding: 15px;
+             box-sizing: border-box;
+             text-align: center;
+             background-color: #cbd5d5;
+         }
+ 
+         .purchased-book-card img {
+             width: 200px; /* Adjust image size here */
+             height: 200px;
+             border-radius: 5px;
+             margin-bottom: 10px;
+         }
+ 
+         .purchased-book-card p {
+             margin: 5px 0;
+         }
+ 
+         .purchased-book-card a {
+             color: #007bff;
+             text-decoration: none;
+         }
+ 
+         .purchased-book-card a:hover {
+             text-decoration: underline;
+         }
+         
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 40px;
+                    background: url('/static/images/img11.jpeg') no-repeat center center fixed;
+                    background-size: cover;
+                    display: flex;
+                    align-items: center; /* Center vertically */
+                    justify-content: center; /* Center horizontally */
+                    color: white; /* Set text color to white */
+                    font-size: 24px; /* Set font size to 24 pixels */
+                }
+            </style>
+        </head>
+        <body>
+           
+            {% for purchase_detail in purchase_details %}
+                <div>
+                    <p>Name: {{ purchase_detail.name }}</p>
+                    <p>Email: {{ purchase_detail.email }}</p>
+                    <p>Address: {{ purchase_detail.address }}</p>
+                    <a href="{% url 'show_purchased_books' %}" style="color: lightyellow;">View Purchased Books</a>
+                </div>
+            {% endfor %}
+           
+        </body>
+        
+         
+</body>
+            
+
+ </html>
+
+
+
+ 

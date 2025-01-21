@@ -1,0 +1,111 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Purchase Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+        form {
+            display: inline;
+        }
+        button {
+            background-color: #2dc00c;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #e11308;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Purchase Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Book Title</th>
+                <th>Book Author</th>
+                <th>Book Price</th>
+                <th>Timestamp</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for purchase_detail in all_purchase_details %}
+            <tr>
+                <td>{{ purchase_detail.user.username }}</td>
+                <td>{{ purchase_detail.email }}</td>
+                <td>{{ purchase_detail.address }}</td>
+                <td>{{ purchase_detail.book.title }}</td>
+                <td>{{ purchase_detail.book.author }}</td>
+                <td>{{ purchase_detail.book.price }}</td>
+                <td>{{ purchase_detail.timestamp }}</td>
+                <td>
+                    <form method="post" action="{% url 'delete_purchase_detail' purchase_detail.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+    <pre>
+
+
+
+
+
+
+
+
+
+    </pre>
+
+</body>
+</html>
+
+
+
+

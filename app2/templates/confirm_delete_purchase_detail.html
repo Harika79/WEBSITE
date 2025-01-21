@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Delete Purchase Detail</title>
+</head>
+<body>
+    <h1>Confirm Delete Purchase Detail</h1>
+    <p>Are you sure you want to delete the purchase detail for "{{ purchase_detail.book.title }}" by "{{ purchase_detail.user.username }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+        <a href="{% url 'show_all_purchase_details' %}">Cancel</a>
+    </form>
+</body>
+</html>

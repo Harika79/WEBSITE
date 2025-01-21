@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Navbar</title>
+    <style>
+        /* CSS for the vertical navbar */
+        body {
+            background-image: url('/static/images/img11.jpeg'); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Adjust height as needed */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 300px; /* Adjust width as needed */
+            background-color: #603b23;
+            height: 100vh; /* Full height of viewport */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-top: 60px; /* Adjust padding for space above navbar items */
+        }
+
+        .navbar img {
+            display: block;
+            margin: 0 auto; /* Center the image horizontally */
+            margin-bottom: 50px; /* Add margin below the image */
+            width: 350px; /* Specify width for the image */
+            height: 200px; /* Specify height for the image */
+            margin-left: -75px; /* Move image to the left */
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li a {
+            display: block;
+            color: rgb(231, 223, 223);
+            padding: 30px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #555;
+        }
+
+        .content {
+            margin-left: 200px; /* Adjust margin to match navbar width */
+            padding: 20px; /* Add padding to content */
+        }
+        .text-overlay  {
+            text-align: right;
+            margin-right: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container" style="position: fixed; top: 10px; right: 10px;">
+        <a class="nav-link" href="{% if user.is_staff %}{% url 'project_list' %}{% else %}http://127.0.0.1:8000/explore/{% endif %}"style="color: white;">go back</a>
+
+    </div>
+
+    <div class="navbar">
+        <img src="/static/images/img82.png" alt="Logo" width="150">
+        <ul>
+            <ul style="list-style-type: none;">
+                <li style="margin-bottom: 20px;"><a href="{% url 'show_purchased_books' %}" style="font-size: 20px;">Show Purchased Books</a></li>
+                <li style="margin-bottom: 20px;"><a href="show/" style="font-size: 20px;">Find Books</a></li>
+            </ul>
+            
+          
+            {% if user.is_staff %}
+            <li style="margin-bottom: 20px;"><a href="add/" style="font-size: 20px;">Publish books</a></li>
+            {% endif %}
+            {% if user.is_staff %}
+    <li style="margin-bottom: 20px;"><a href="purchase/details/all" style="font-size: 20px;">Purchased books information</a></li>
+{% endif %}
+          
+        </ul>
+    </div>
+
+    
+    </div>
+
+    <div class="text-overlay">
+       
+        <h2 style="text-align: right; margin-right: 670px; color: white;">:)Hello! Learner</h2>
+        <h2 style="text-align: right; margin-right: 500px; color: white;">:)You can purchase e_books here</h2>
+        <h2 style="text-align: right; margin-right: 660px; color: white;">:)Happy Reading</h2>
+      
+
+
+    </div>
+                                                
+
+</body>
+</html>
