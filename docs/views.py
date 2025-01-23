@@ -5,7 +5,7 @@ from django.contrib import messages
 from .forms import SignUpForm, EditProfileForm 
 # Create your views here.
 def home(request): 
-	return render(request, 'authenticate/home.html', {})
+	return render(request, 'docs/index.html', {})
 
 def login_user (request):
 	if request.method == 'POST': #if someone fills out form , Post it 
@@ -20,7 +20,7 @@ def login_user (request):
 			messages.success(request,('Error logging in'))
 			return redirect('login') #re routes to login page upon unsucessful login
 	else:
-		return render(request, 'authenticate/login.html', {})
+		return render(request, 'docs/login.html', {})
 
 def logout_user(request):
 	logout(request)
@@ -42,7 +42,7 @@ def register_user(request):
 		form = SignUpForm() 
 
 	context = {'form': form}
-	return render(request, 'authenticate/register.html', context)
+	return render(request, 'docs/register.html', context)
 
 def edit_profile(request):
 	if request.method =='POST':
@@ -55,7 +55,7 @@ def edit_profile(request):
 		form = EditProfileForm(instance= request.user) 
 
 	context = {'form': form}
-	return render(request, 'authenticate/edit_profile.html', context)
+	return render(request, 'docs/edit_profile.html', context)
 	#return render(request, 'authenticate/edit_profile.html',{})
 
 
@@ -72,4 +72,4 @@ def change_password(request):
 		form = PasswordChangeForm(user= request.user) 
 
 	context = {'form': form}
-	return render(request, 'authenticate/change_password.html', context)
+	return render(request, 'docs/change_password.html', context)
