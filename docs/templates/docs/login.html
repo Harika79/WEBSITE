@@ -1,15 +1,17 @@
-
 {% extends 'docs/base.html' %}
+{% load static %} 
 
 {% block content %}
 <style>
     /* Add background image to the body */
     body {
-        background-image: url('/static/images/img11.jpeg'); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+        background-image: url("{% static 'img/img11.jpeg' %}"); /* Corrected path */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        height: 100vh; /* Adjust height as needed */
+        height: 100vh; /* Ensures full viewport height */
+        margin: 0;
+        padding: 0;
     }
 </style>
 
@@ -26,11 +28,13 @@
         </div>
         <button type="submit" class="btn btn-secondary">Login</button>
     </form>
-	<div class="d-flex justify-content-center links">
-		<button class="btn btn-outline-light ml-2" style="text-shadow: 0 0 4px rgb(206, 201, 225); background-color: #080202;" onclick="window.location.href='http://127.0.0.1:8000/reset_password/'">Forgot Password?</button>
-	</div>
-	
-	
+    <div class="d-flex justify-content-center links">
+        <button class="btn btn-outline-light ml-2" 
+                style="text-shadow: 0 0 4px rgb(206, 201, 225); background-color: #080202;" 
+                onclick="window.location.href='http://127.0.0.1:8000/reset_password/'">
+            Forgot Password?
+        </button>
+    </div>
 </div>
 
 {% endblock %}

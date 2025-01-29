@@ -1,25 +1,37 @@
 {% extends 'docs/base.html' %}
+{% load static %}  {# Load static files #}
 
 {% block content %}
+<style>
+    /* Set full-screen background image */
+    body {
+        background-image: url("{% static 'img/img96.jpeg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Position content at the top-left */
+    .container {
+        position: absolute;
+        top: 25px;  /* Adjust as needed */
+        left: 10px; /* Adjust as needed */
+        text-align: left;
+        color: white; /* Adjust for better visibility */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        padding: 10px;
+    }
+</style>
 
 <div class="container">
     <div class="center-content">
-		<h1 style="color: Black; text-shadow: 0 0 4px white;">TECHNOLOGICAL SUBJECTS AND SPACE</h1>
-		
-		
-		<h3 style="color: Black; text-shadow: 0 0 3px white;">Be curious</h1>
-
- <B style="color: black; text-shadow: 0 0 2px white;">Let's explore</p></B>   
- </pre>
-
-
-
+        <h1>TECHNOLOGICAL SUBJECTS AND SPACE</h1>
+        <h3>Be curious</h3>
+        <b>Let's explore</b>  
     </div>
-  </div>
-
-
-
-
-
+</div>
 
 {% endblock %}
